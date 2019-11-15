@@ -1,13 +1,10 @@
-Sub InsertEquation(str)
+Sub ExecuteCommand(str)
     ActiveSheet.Shapes.AddLabel(msoTextOrientationHorizontal, 0, 0, 0, 0).Select
     Selection.Font.Size = 15
     Application.CommandBars.ExecuteMso "InsertBuildingBlocksEquationsGallery"
     Selection.Text = str
     Selection.ShapeRange.TextFrame2.WordWrap = msoFalse
     Application.CommandBars.ExecuteMso "EquationProfessional"
-End Sub
-Sub Sample()
-    InsertEquation "F(t)=\sum_(x=0)^(n-1) \of \begin f(x) e^(-\ii  2\pi tx/N) \end"
 End Sub
 Sub OutputMatrix()
 '<summary>
@@ -41,7 +38,7 @@ Sub OutputMatrix()
     matrixCommand = matrixCommand + "))" ' 行列取得コマンド作成終了
     outputPermission = MsgBox("行列を出力しますがよろしいですか？", vbYesNo, "行列出力")
     If (outputPermission = vbYes) Then
-        InsertEquation matrixCommand
+        ExecuteCommand matrixCommand
     End If
 End Sub
 Function nullToZero(ByVal target As String)
