@@ -1,11 +1,4 @@
-Sub ExecuteCommand(str)
-    ActiveSheet.Shapes.AddLabel(msoTextOrientationHorizontal, 0, 0, 0, 0).Select
-    Selection.Font.Size = 15
-    Application.CommandBars.ExecuteMso "InsertBuildingBlocksEquationsGallery"
-    Selection.Text = str
-    Selection.ShapeRange.TextFrame2.WordWrap = msoFalse
-    Application.CommandBars.ExecuteMso "EquationProfessional"
-End Sub
+Attribute VB_Name = "CommandToFormula"
 Sub OutputMatrix()
 '<summary>
 ' OutputMatrix : ()
@@ -40,6 +33,20 @@ Sub OutputMatrix()
     If (outputPermission = vbYes) Then
         ExecuteCommand matrixCommand
     End If
+End Sub
+Sub ExecuteCommand(str)
+'<summary>
+' ExecuteCommand : (ˆø” : StringŒ^)
+'</summary>
+'<remarks>
+' æ“¾‚µ‚½ƒRƒ}ƒ“ƒhî•ñ(StringŒ^)‚ğÀÛ‚É”®‚Æ‚µ‚Ä•ÏŠ·‚·‚é
+'</remarks>
+    ActiveSheet.Shapes.AddLabel(msoTextOrientationHorizontal, 0, 0, 0, 0).Select
+    Selection.Font.Size = 15
+    Application.CommandBars.ExecuteMso "InsertBuildingBlocksEquationsGallery"
+    Selection.Text = str
+    Selection.ShapeRange.TextFrame2.WordWrap = msoFalse
+    Application.CommandBars.ExecuteMso "EquationProfessional"
 End Sub
 Function nullToZero(ByVal target As String)
 '<summary>
